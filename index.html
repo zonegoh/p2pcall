@@ -248,7 +248,8 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-bet
   <details><summary>Benar-benar gratis?</summary><p>Ya. Tidak ada biaya, langganan, atau iklan. Panggilan 1:1 berjalan langsung antar perangkat sehingga tidak membebani server.</p></details>
   <details><summary>Apakah butuh internet?</summary><p>Ya, Wi-Fi atau data seluler. Video call memakai kuota seperti aplikasi video call lain; voice call jauh lebih hemat.</p></details>
   <details><summary>Bagaimana dengan iPhone?</summary><p>Pakai <b>versi web</b> di Safari, lalu <b>Bagikan → Tambahkan ke Layar Utama</b>. Buka dari ikon di Layar Utama dan aktifkan notifikasi (iOS 16.4 ke atas) agar panggilan &amp; pesan tetap masuk saat ditutup.</p></details>
-  <details><summary>Apa bedanya aplikasi Android dengan versi web?</summary><p>Fiturnya sama dan bisa saling menelepon. Aplikasi Android bisa memunculkan layar panggilan penuh &amp; nada dering HP walau terkunci; versi web memakai notifikasi browser — ketuk notifikasinya untuk menjawab.</p></details>
+  <details><summary>Apa bedanya aplikasi Android dengan versi web?</summary><p>Fiturnya sama dan bisa saling menelepon. Di Android (7.0 ke atas) P2P Call dipakai lewat aplikasinya; versi web untuk iPhone, laptop, dan Android lama. Aplikasi Android bisa memunculkan layar panggilan penuh &amp; nada dering HP walau terkunci; versi web memakai notifikasi browser — ketuk notifikasinya untuk menjawab.</p></details>
+  <details><summary>Bisa membagikan link TikTok / Instagram ke P2P Call?</summary><p>Bisa. Di aplikasi lain ketuk <b>Bagikan → P2P Call</b>, pilih satu atau beberapa kontak, lalu kirim. Link undangan P2P Call juga langsung membuka aplikasinya bila terpasang.</p></details>
   <details><summary>Kenapa tidak ada di Play Store?</summary><p>APK disediakan langsung agar bisa dipakai siapa saja dengan cepat. File ditandatangani resmi dan pembaruan diverifikasi (SHA-256) sebelum dipasang.</p></details>
   <details><summary>Bagaimana kalau saya ganti HP?</summary><p>Aktifkan <b>Cadangan otomatis</b> dan simpan kode pemulihan. Di HP baru pilih <b>Pulihkan dari cadangan</b> — kode, kontak, dan chat kembali. Atau tautkan langsung lewat <b>Tautkan perangkat lain</b>.</p></details>
 </div></section>
@@ -271,6 +272,8 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-bet
 <script>
 // versi & ukuran APK terbaru dari server (tetap jalan dengan teks bawaan bila gagal)
 document.getElementById('yr').textContent = new Date().getFullYear();
+// Android 7.0+ memakai aplikasi (versi web di Android menampilkan layar Unduh) → tombol versi web disembunyikan
+if (+(navigator.userAgent.match(/Android (\d+)/)?.[1] || 0) >= 7) for (const a of document.querySelectorAll('a.btn.ghost[href^="https://p2pcall"]')) a.hidden = true;
 fetch('https://p2pcall.zonegoh.workers.dev/app/version.json', { cache: 'no-store' }).then(r => r.ok ? r.json() : null).then(v => {
   if (!v) return;
   const mb = (v.size / 1e6).toLocaleString('id', { maximumFractionDigits: 1 });
