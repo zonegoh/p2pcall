@@ -61,10 +61,17 @@ h2{font-size:clamp(28px,3.6vw,40px);line-height:1.15;letter-spacing:-.01em;margi
 .step{position:relative;padding:26px 24px 24px;border-radius:var(--r);background:var(--card);border:1px solid rgba(255,255,255,.06)}
 .step::before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--green);color:#000;font-weight:700;margin-bottom:14px}
 .step h3{margin:0 0 6px;font-size:18px}.step p{margin:0;color:var(--mut);font-size:15px}
-.gallery{display:flex;gap:18px;overflow-x:auto;padding:4px 4px 18px;scroll-snap-type:x mandatory}
-.gallery figure{margin:0;flex:0 0 220px;scroll-snap-align:start}
-.gallery img{width:100%;border-radius:24px;border:6px solid #1c1c1e;display:block}
+.gallery{display:flex;gap:18px;overflow-x:auto;padding:4px 4px 18px;scroll-snap-type:x mandatory;justify-content:safe center}
+.gallery figure{margin:0;flex:0 0 min(220px,62vw);scroll-snap-align:center}
+.gallery img{width:100%;height:auto;aspect-ratio:540/1169;border-radius:24px;border:6px solid #1c1c1e;display:block;background:#0b0b0c}
 .gallery figcaption{color:var(--mut);font-size:14px;text-align:center;margin-top:10px}
+.p2p{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.pts{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.pts li{padding-left:30px;position:relative;color:var(--mut)}
+.pts li b{color:var(--txt)}
+.pts li::before{content:'';position:absolute;left:0;top:6px;width:18px;height:18px;border-radius:50%;background:var(--green) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center/12px no-repeat}
+.diagram{margin:0;padding:20px;border-radius:24px;background:var(--card);border:1px solid rgba(255,255,255,.06)}
+.diagram svg{width:100%;height:auto;display:block}
 .privacy{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .check{display:flex;gap:12px;padding:18px;border-radius:16px;background:var(--card);border:1px solid rgba(255,255,255,.06)}
 .check svg{color:var(--green);margin-top:2px}
@@ -87,7 +94,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-bet
   .phones{height:470px;max-width:440px;width:100%;margin:0 auto}
   .phone{width:205px}
   .grid{grid-template-columns:1fr 1fr}
-  .steps,.privacy,.install{grid-template-columns:1fr}
+  .steps,.privacy,.install,.p2p{grid-template-columns:1fr}
   nav .links{display:none}
   nav .btn{margin-left:auto}
 }
@@ -112,21 +119,20 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-bet
 
 <header><div class="wrap"><nav aria-label="Navigasi utama">
   <a class="brand" href="#"><span class="logo"><svg class="i" aria-hidden="true"><use href="#video"/></svg></span>P2P Call</a>
-  <div class="links"><a href="#fitur">Fitur</a><a href="#cara">Cara kerja</a><a href="#privasi">Privasi</a><a href="#faq">FAQ</a></div>
+  <div class="links"><a href="#p2p">P2P</a><a href="#fitur">Fitur</a><a href="#cara">Cara pakai</a><a href="#faq">FAQ</a></div>
   <a class="btn green sm" href="#unduh">Unduh</a>
 </nav></div></header>
 
 <main>
 <div class="wrap hero">
   <div>
-    <span class="pill">Gratis · Tanpa nomor HP · Tanpa iklan</span>
+    <span class="pill">Peer-to-peer · Tidak disimpan di server · Gratis</span>
     <h1>Chat &amp; video call <em>gratis</em>, langsung antar perangkat.</h1>
-    <p class="lead">Tambah teman cukup scan QR. Panggilan 1:1 tersambung langsung dari HP ke HP — cepat, jernih, dan tidak lewat server.</p>
+    <p class="lead">Chat dan panggilanmu mengalir <b>langsung dari HP ke HP</b> — tidak disimpan di server mana pun. Tanpa nomor HP: tambah teman cukup scan QR.</p>
     <div class="ctas" id="unduh">
       <a class="btn green apk" href="https://p2pcall.zonegoh.workers.dev/app/p2pcall.apk" download><svg class="i" aria-hidden="true"><use href="#android"/></svg>Unduh untuk Android</a>
-      <a class="btn ghost" href="https://p2pcall.zonegoh.workers.dev" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#globe"/></svg>Buka versi web</a>
     </div>
-    <p class="meta" id="ver">APK langsung, tanpa Play Store · pembaruan dari dalam aplikasi</p>
+    <p class="meta" id="ver">Untuk Android · tanpa Play Store · pembaruan dari dalam aplikasi</p>
   </div>
   <div class="phones" aria-hidden="true">
     <div class="glow"></div>
@@ -134,6 +140,40 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-bet
     <div class="phone b"><img src="assets/chat.webp" alt="" width="540" height="1169"></div>
   </div>
 </div>
+
+<section id="p2p"><div class="wrap p2p">
+  <div>
+    <h2>Langsung antar perangkat.<br>Bukan lewat server.</h2>
+    <p class="sub">Di aplikasi chat biasa, pesan dan panggilanmu melewati — dan sering disimpan di — server perusahaan. P2P Call bekerja seperti telepon langsung: server hanya <b>memperkenalkan</b> kedua HP, lalu menyingkir.</p>
+    <ul class="pts">
+      <li><b>Pesan tidak disimpan di server.</b> Hanya diteruskan seketika, lalu tersimpan di HP pengirim &amp; penerima saja.</li>
+      <li><b>Panggilan 1:1 tersambung langsung</b> (WebRTC P2P, terenkripsi DTLS-SRTP) — suara &amp; video tidak melewati server kami.</li>
+      <li><b>Tidak ada akun pusat.</b> Tanpa nomor HP, email, atau kata sandi — identitasmu kode acak di HP-mu.</li>
+      <li><b>Group call</b> (3 orang atau lebih) memakai relay terenkripsi yang hanya meneruskan, tidak merekam.</li>
+    </ul>
+  </div>
+  <figure class="diagram" aria-label="Diagram: server hanya memperkenalkan, data mengalir langsung antar HP">
+    <svg viewBox="0 0 420 300" role="img">
+      <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#30d158"/></marker></defs>
+      <rect x="150" y="18" width="120" height="58" rx="14" fill="#1c1c1e" stroke="#3a3a3c"/>
+      <text x="210" y="44" text-anchor="middle" fill="#f5f5f7" font-size="14" font-weight="600">Server</text>
+      <text x="210" y="63" text-anchor="middle" fill="#a1a1a6" font-size="11.5">hanya perkenalan</text>
+      <path d="M150 62 L88 150" stroke="#636366" stroke-width="2" stroke-dasharray="5 6"/>
+      <path d="M270 62 L332 150" stroke="#636366" stroke-width="2" stroke-dasharray="5 6"/>
+      <rect x="30" y="150" width="96" height="120" rx="20" fill="#111214" stroke="#30d158" stroke-width="2"/>
+      <text x="78" y="205" text-anchor="middle" fill="#f5f5f7" font-size="14" font-weight="600">HP kamu</text>
+      <text x="78" y="225" text-anchor="middle" fill="#a1a1a6" font-size="11.5">chat tersimpan</text>
+      <text x="78" y="240" text-anchor="middle" fill="#a1a1a6" font-size="11.5">di sini</text>
+      <rect x="294" y="150" width="96" height="120" rx="20" fill="#111214" stroke="#30d158" stroke-width="2"/>
+      <text x="342" y="205" text-anchor="middle" fill="#f5f5f7" font-size="14" font-weight="600">HP teman</text>
+      <text x="342" y="225" text-anchor="middle" fill="#a1a1a6" font-size="11.5">chat tersimpan</text>
+      <text x="342" y="240" text-anchor="middle" fill="#a1a1a6" font-size="11.5">di sini</text>
+      <path d="M134 210 L286 210" stroke="#30d158" stroke-width="3" marker-start="url(#ah)" marker-end="url(#ah)"/>
+      <text x="210" y="198" text-anchor="middle" fill="#30d158" font-size="13" font-weight="700">langsung (P2P)</text>
+      <text x="210" y="232" text-anchor="middle" fill="#a1a1a6" font-size="11.5">chat · suara · video</text>
+    </svg>
+  </figure>
+</div></section>
 
 <section id="fitur"><div class="wrap">
   <h2>Semua yang kamu butuhkan untuk tetap terhubung</h2>
@@ -152,7 +192,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-bet
   <h2>Mulai dalam 1 menit</h2>
   <p class="sub">Tanpa formulir, tanpa verifikasi SMS.</p>
   <div class="steps">
-    <div class="step"><h3>Pasang &amp; isi nama</h3><p>Unduh APK atau buka versi web, lalu masukkan nama. Kamu langsung dapat kode &amp; QR sendiri.</p></div>
+    <div class="step"><h3>Pasang &amp; isi nama</h3><p>Unduh &amp; pasang APK, lalu masukkan nama. Kamu langsung dapat kode &amp; QR sendiri.</p></div>
     <div class="step"><h3>Scan QR teman</h3><p>Tekan <b>Scan QR</b> dan arahkan ke QR teman. Kalian otomatis saling tersimpan sebagai kontak.</p></div>
     <div class="step"><h3>Chat &amp; telepon</h3><p>Ketuk kontak untuk chat, voice call, atau video call. Pilih beberapa kontak untuk group call.</p></div>
   </div>
@@ -165,13 +205,13 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-bet
 </div></section>
 
 <section id="privasi"><div class="wrap">
-  <h2>Privasi sejak awal</h2>
-  <p class="sub">Kami menyimpan sesedikit mungkin — dan yang disimpan pun tidak bisa kami baca.</p>
+  <h2>Apa yang (tidak) disimpan</h2>
+  <p class="sub">Server kami hanya tahu sesedikit mungkin untuk mempertemukan dua perangkat.</p>
   <div class="privacy">
     <div class="check"><svg class="i" aria-hidden="true"><use href="#check"/></svg><div><b>Tanpa nomor HP &amp; email</b><span>Identitasmu hanya kode acak dan nama yang kamu pilih sendiri.</span></div></div>
     <div class="check"><svg class="i" aria-hidden="true"><use href="#check"/></svg><div><b>Panggilan 1:1 langsung</b><span>Suara &amp; video mengalir langsung antar perangkat, tidak lewat server kami.</span></div></div>
-    <div class="check"><svg class="i" aria-hidden="true"><use href="#check"/></svg><div><b>Chat tidak disimpan di server</b><span>Pesan hanya diteruskan, lalu disimpan di perangkatmu sendiri.</span></div></div>
-    <div class="check"><svg class="i" aria-hidden="true"><use href="#check"/></svg><div><b>Cadangan terenkripsi di perangkat</b><span>Dienkripsi dengan kode pemulihan milikmu sebelum dikirim — hanya kamu yang bisa membukanya.</span></div></div>
+    <div class="check"><svg class="i" aria-hidden="true"><use href="#check"/></svg><div><b>Tidak ada riwayat chat di server</b><span>Pesan diteruskan lalu dilupakan server; riwayat hanya ada di HP kalian.</span></div></div>
+    <div class="check"><svg class="i" aria-hidden="true"><use href="#check"/></svg><div><b>Cadangan opsional &amp; terenkripsi</b><span>Hanya jika kamu aktifkan. Dienkripsi di HP dengan kode pemulihanmu — server tidak bisa membacanya.</span></div></div>
   </div>
 </div></section>
 
@@ -198,7 +238,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-bet
   <h2>Pertanyaan umum</h2>
   <details><summary>Benar-benar gratis?</summary><p>Ya. Tidak ada biaya, langganan, atau iklan. Panggilan 1:1 berjalan langsung antar perangkat sehingga tidak membebani server.</p></details>
   <details><summary>Apakah butuh internet?</summary><p>Ya, Wi-Fi atau data seluler. Video call memakai kuota seperti aplikasi video call lain; voice call jauh lebih hemat.</p></details>
-  <details><summary>Bagaimana dengan iPhone?</summary><p>Pakai versi web di Safari: chat, voice/video call, dan group call berjalan. Bedanya, panggilan hanya diterima saat halaman sedang terbuka.</p></details>
+  <details><summary>Bagaimana dengan iPhone?</summary><p>Versi iPhone sedang disiapkan. Untuk saat ini P2P Call tersedia untuk Android.</p></details>
   <details><summary>Kenapa tidak ada di Play Store?</summary><p>APK disediakan langsung agar bisa dipakai siapa saja dengan cepat. File ditandatangani resmi dan pembaruan diverifikasi (SHA-256) sebelum dipasang.</p></details>
   <details><summary>Bagaimana kalau saya ganti HP?</summary><p>Aktifkan <b>Cadangan otomatis</b> dan simpan kode pemulihan. Di HP baru pilih <b>Pulihkan dari cadangan</b> — kode, kontak, dan chat kembali. Atau tautkan langsung lewat <b>Tautkan perangkat lain</b>.</p></details>
 </div></section>
@@ -208,14 +248,13 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-bet
   <p class="sub" style="margin:0 auto 24px">Pasang sekarang, scan QR teman, dan langsung telepon.</p>
   <div class="ctas">
     <a class="btn green apk" href="https://p2pcall.zonegoh.workers.dev/app/p2pcall.apk" download><svg class="i" aria-hidden="true"><use href="#android"/></svg>Unduh untuk Android</a>
-    <a class="btn ghost" href="https://p2pcall.zonegoh.workers.dev" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#globe"/></svg>Buka versi web</a>
   </div>
 </div></div></section>
 </main>
 
 <footer><div class="wrap">
   <span>© <span id="yr">2026</span> P2P Call</span>
-  <span><a href="#privasi">Privasi</a> · <a href="https://p2pcall.zonegoh.workers.dev" target="_blank" rel="noopener">Versi web</a></span>
+  <span><a href="#p2p">Cara kerja P2P</a> · <a href="#privasi">Privasi</a></span>
 </div></footer>
 
 <script>
@@ -224,7 +263,7 @@ document.getElementById('yr').textContent = new Date().getFullYear();
 fetch('https://p2pcall.zonegoh.workers.dev/app/version.json', { cache: 'no-store' }).then(r => r.ok ? r.json() : null).then(v => {
   if (!v) return;
   const mb = (v.size / 1e6).toLocaleString('id', { maximumFractionDigits: 1 });
-  document.getElementById('ver').textContent = `Versi ${v.versionName} · ${mb} MB · tanpa Play Store · pembaruan dari dalam aplikasi`;
+  document.getElementById('ver').textContent = `Android · versi ${v.versionName} · ${mb} MB · tanpa Play Store`;
   for (const a of document.querySelectorAll('a.apk')) a.href = new URL(v.url, 'https://p2pcall.zonegoh.workers.dev').href;
 }).catch(() => {});
 </script>
