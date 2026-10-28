@@ -76,7 +76,7 @@ h2{font-size:clamp(28px,3.6vw,40px);line-height:1.15;letter-spacing:-.01em;margi
 .check{display:flex;gap:12px;padding:18px;border-radius:16px;background:var(--card);border:1px solid rgba(255,255,255,.06)}
 .check svg{color:var(--green);margin-top:2px}
 .check b{display:block}.check span{color:var(--mut);font-size:15px}
-.install{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.install{display:grid;grid-template-columns:1fr 1fr;gap:16px}.install .web{grid-column:1/-1}
 ol.how{margin:0;padding-left:22px;color:var(--mut)}
 ol.how li{margin:8px 0}ol.how b{color:var(--txt)}
 details{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:0 20px;margin-bottom:10px}
@@ -128,11 +128,12 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-bet
   <div>
     <span class="pill">Peer-to-peer · Tidak disimpan di server · Gratis</span>
     <h1>Chat &amp; video call <em>gratis</em>, langsung antar perangkat.</h1>
-    <p class="lead">Chat dan panggilanmu mengalir <b>langsung dari HP ke HP</b> — tidak disimpan di server mana pun. Tanpa nomor HP: tambah teman cukup scan QR.</p>
+    <p class="lead">Chat dan panggilanmu mengalir <b>langsung antar perangkat</b> — tidak disimpan di server mana pun. Tanpa nomor HP: tambah teman cukup scan QR. Pakai di Android, iPhone, atau laptop.</p>
     <div class="ctas" id="unduh">
       <a class="btn green apk" href="https://p2pcall.zonegoh.workers.dev/app/p2pcall.apk" download><svg class="i" aria-hidden="true"><use href="#android"/></svg>Unduh untuk Android</a>
+      <a class="btn ghost" href="https://p2pcall.zonegoh.workers.dev/" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#globe"/></svg>Buka versi web</a>
     </div>
-    <p class="meta" id="ver">Untuk Android · tanpa Play Store · pembaruan dari dalam aplikasi</p>
+    <p class="meta" id="ver">Android: tanpa Play Store · Versi web: iPhone, laptop & semua browser modern</p>
   </div>
   <div class="phones" aria-hidden="true">
     <div class="glow"></div>
@@ -183,7 +184,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-bet
     <div class="card"><div class="ic g"><svg class="i" aria-hidden="true"><use href="#users"/></svg></div><h3>Group call</h3><p>Pilih beberapa kontak, semua berdering sekaligus. Tambah peserta kapan saja di tengah panggilan.</p></div>
     <div class="card"><div class="ic"><svg class="i" aria-hidden="true"><use href="#chat"/></svg></div><h3>Chat dengan centang</h3><p>Terkirim, sampai, dan dibaca — plus riwayat panggilan di dalam chat dan pencarian pesan.</p></div>
     <div class="card"><div class="ic"><svg class="i" aria-hidden="true"><use href="#qr"/></svg></div><h3>Tambah teman via QR</h3><p>Tidak perlu nomor HP atau email. Scan QR teman, nama kalian langsung saling muncul.</p></div>
-    <div class="card"><div class="ic"><svg class="i" aria-hidden="true"><use href="#bell"/></svg></div><h3>Tetap berdering</h3><p>Aplikasi Android tetap menerima panggilan &amp; pesan walau ditutup, dengan nada dering bawaan HP.</p></div>
+    <div class="card"><div class="ic"><svg class="i" aria-hidden="true"><use href="#bell"/></svg></div><h3>Tetap berdering</h3><p>Panggilan &amp; pesan tetap masuk walau aplikasi ditutup — di Android dengan nada dering bawaan HP, di versi web lewat notifikasi browser.</p></div>
     <div class="card"><div class="ic"><svg class="i" aria-hidden="true"><use href="#lock"/></svg></div><h3>Cadangan terenkripsi</h3><p>Ganti HP atau instal ulang? Pulihkan kontak &amp; chat dengan kode pemulihan. Server tidak bisa membacanya.</p></div>
   </div>
 </div></section>
@@ -192,7 +193,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-bet
   <h2>Mulai dalam 1 menit</h2>
   <p class="sub">Tanpa formulir, tanpa verifikasi SMS.</p>
   <div class="steps">
-    <div class="step"><h3>Pasang &amp; isi nama</h3><p>Unduh &amp; pasang APK, lalu masukkan nama. Kamu langsung dapat kode &amp; QR sendiri.</p></div>
+    <div class="step"><h3>Pasang &amp; isi nama</h3><p>Pasang APK atau buka versi web, lalu masukkan nama. Kamu langsung dapat kode &amp; QR sendiri.</p></div>
     <div class="step"><h3>Scan QR teman</h3><p>Tekan <b>Scan QR</b> dan arahkan ke QR teman. Kalian otomatis saling tersimpan sebagai kontak.</p></div>
     <div class="step"><h3>Chat &amp; telepon</h3><p>Ketuk kontak untuk chat, voice call, atau video call. Pilih beberapa kontak untuk group call.</p></div>
   </div>
@@ -228,8 +229,16 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-bet
     <h3 style="margin-top:0">Pembaruan otomatis</h3>
     <ol class="how">
       <li>Tampilan &amp; fitur baru diperbarui otomatis tanpa unduh ulang.</li>
-      <li>Untuk versi aplikasi baru, buka <b>☰ → Cek pembaruan</b> — aplikasi mengunduh &amp; memasangnya sendiri.</li>
+      <li>Saat ada versi aplikasi baru, muncul tawaran <b>Perbarui</b> — aplikasi mengunduh &amp; memasangnya sendiri.</li>
       <li>Aktifkan <b>Cadangan otomatis</b> agar data aman saat ganti HP.</li>
+    </ol>
+  </div>
+  <div class="card web">
+    <h3 style="margin-top:0">Versi web: iPhone, laptop &amp; PC</h3>
+    <ol class="how">
+      <li>Buka <a href="https://p2pcall.zonegoh.workers.dev/" target="_blank" rel="noopener"><b>p2pcall.zonegoh.workers.dev</b></a> di Chrome, Edge, Opera, atau Safari.</li>
+      <li>Ketuk <b>Aktifkan</b> notifikasi agar panggilan &amp; pesan tetap masuk saat ditutup. Cek di <b>☰ → Notifikasi → Kirim notifikasi uji</b>.</li>
+      <li>Pasang sebagai aplikasi: tombol <b>Pasang</b> (Chrome/Edge), atau di iPhone <b>Safari → Bagikan → Tambahkan ke Layar Utama</b> — wajib di iPhone agar notifikasi masuk.</li>
     </ol>
   </div>
 </div></section>
@@ -238,7 +247,8 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-bet
   <h2>Pertanyaan umum</h2>
   <details><summary>Benar-benar gratis?</summary><p>Ya. Tidak ada biaya, langganan, atau iklan. Panggilan 1:1 berjalan langsung antar perangkat sehingga tidak membebani server.</p></details>
   <details><summary>Apakah butuh internet?</summary><p>Ya, Wi-Fi atau data seluler. Video call memakai kuota seperti aplikasi video call lain; voice call jauh lebih hemat.</p></details>
-  <details><summary>Bagaimana dengan iPhone?</summary><p>Versi iPhone sedang disiapkan. Untuk saat ini P2P Call tersedia untuk Android.</p></details>
+  <details><summary>Bagaimana dengan iPhone?</summary><p>Pakai <b>versi web</b> di Safari, lalu <b>Bagikan → Tambahkan ke Layar Utama</b>. Buka dari ikon di Layar Utama dan aktifkan notifikasi (iOS 16.4 ke atas) agar panggilan &amp; pesan tetap masuk saat ditutup.</p></details>
+  <details><summary>Apa bedanya aplikasi Android dengan versi web?</summary><p>Fiturnya sama dan bisa saling menelepon. Aplikasi Android bisa memunculkan layar panggilan penuh &amp; nada dering HP walau terkunci; versi web memakai notifikasi browser — ketuk notifikasinya untuk menjawab.</p></details>
   <details><summary>Kenapa tidak ada di Play Store?</summary><p>APK disediakan langsung agar bisa dipakai siapa saja dengan cepat. File ditandatangani resmi dan pembaruan diverifikasi (SHA-256) sebelum dipasang.</p></details>
   <details><summary>Bagaimana kalau saya ganti HP?</summary><p>Aktifkan <b>Cadangan otomatis</b> dan simpan kode pemulihan. Di HP baru pilih <b>Pulihkan dari cadangan</b> — kode, kontak, dan chat kembali. Atau tautkan langsung lewat <b>Tautkan perangkat lain</b>.</p></details>
 </div></section>
@@ -248,6 +258,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-bet
   <p class="sub" style="margin:0 auto 24px">Pasang sekarang, scan QR teman, dan langsung telepon.</p>
   <div class="ctas">
     <a class="btn green apk" href="https://p2pcall.zonegoh.workers.dev/app/p2pcall.apk" download><svg class="i" aria-hidden="true"><use href="#android"/></svg>Unduh untuk Android</a>
+    <a class="btn ghost" href="https://p2pcall.zonegoh.workers.dev/" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#globe"/></svg>Buka versi web</a>
   </div>
 </div></div></section>
 </main>
@@ -263,7 +274,7 @@ document.getElementById('yr').textContent = new Date().getFullYear();
 fetch('https://p2pcall.zonegoh.workers.dev/app/version.json', { cache: 'no-store' }).then(r => r.ok ? r.json() : null).then(v => {
   if (!v) return;
   const mb = (v.size / 1e6).toLocaleString('id', { maximumFractionDigits: 1 });
-  document.getElementById('ver').textContent = `Android · versi ${v.versionName} · ${mb} MB · tanpa Play Store`;
+  document.getElementById('ver').textContent = `Android ${v.versionName} · ${mb} MB · tanpa Play Store · Versi web: iPhone, laptop & semua browser modern`;
   for (const a of document.querySelectorAll('a.apk')) a.href = new URL(v.url, 'https://p2pcall.zonegoh.workers.dev').href;
 }).catch(() => {});
 </script>
