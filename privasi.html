@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Kebijakan Privasi · P2P Call</title>
+<meta name="description" content="Data apa yang diproses P2P Call, untuk apa, berapa lama disimpan, dan cara menghapus akun.">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<style>
+:root{--bg:#000;--card:#111214;--line:#2c2c2e;--txt:#f5f5f7;--mut:#a1a1a6;--green:#30d158;--blue:#4aa3ff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--txt);font:16px/1.65 -apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--blue)}a:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+.wrap{max-width:760px;margin:0 auto;padding:32px max(20px,env(safe-area-inset-left)) 64px}
+.brand{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:18px;color:var(--txt);text-decoration:none}
+.logo{width:32px;height:32px;border-radius:9px;background:var(--green);display:grid;place-items:center}
+h1{font-size:clamp(30px,5vw,42px);line-height:1.1;margin:36px 0 8px;letter-spacing:-.01em}
+.date{color:var(--mut);margin:0 0 28px}
+h2{font-size:22px;margin:40px 0 10px}
+h3{font-size:17px;margin:22px 0 6px}
+p,li{color:#d8d8dc}ul{padding-left:22px}li{margin:6px 0}
+.box{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px;margin:16px 0}
+.box b{color:var(--txt)}
+table{width:100%;border-collapse:collapse;font-size:15px}.tw{overflow-x:auto}
+th,td{text-align:left;vertical-align:top;padding:10px 8px;border-bottom:1px solid var(--line)}th{color:var(--mut);font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.04em}
+hr{border:0;border-top:1px solid var(--line);margin:48px 0}
+footer{color:var(--mut);font-size:14px;margin-top:48px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="brand" href="./"><span class="logo"><svg width="18" height="18" viewBox="0 0 24 24" fill="#000"><path d="M16 10l5-3v10l-5-3z"/><rect x="2" y="6" width="14" height="12" rx="3"/></svg></span>P2P Call</a>
+
+<h1>Kebijakan Privasi</h1>
+<p class="date">Berlaku sejak 1 November 2026 · <a href="#english">English summary</a></p>
+
+<p>P2P Call adalah aplikasi chat, telepon, dan video call. Halaman ini menjelaskan data apa saja yang diproses, untuk apa, berapa lama disimpan, dan bagaimana Anda bisa menghapusnya. Kebijakan ini berlaku untuk aplikasi Android P2P Call dan versi webnya di p2pcall.zonegoh.workers.dev.</p>
+
+<div class="box"><b>Ringkasnya:</b> tidak perlu nomor HP, email, atau kata sandi. Riwayat chat disimpan di HP Anda. Tidak ada iklan, analitik, atau pelacakan, dan kami tidak menjual data. Pesan chat <b>belum terenkripsi ujung-ke-ujung</b>: pesan melewati server kami dan layanan notifikasi Google saat dikirim, tetapi tidak disimpan di server.</div>
+
+<h2>1. Data yang diproses</h2>
+<div class="tw"><table>
+<thead><tr><th>Data</th><th>Untuk apa</th><th>Disimpan di server</th></tr></thead>
+<tbody>
+<tr><td>Nama tampilan</td><td>Ditampilkan ke teman dan anggota grup</td><td>Ya, selama akun aktif (untuk grup)</td></tr>
+<tr><td>Kode P2P (ID acak akun)</td><td>Alamat akun Anda agar bisa dihubungi</td><td>Ya, selama akun aktif</td></tr>
+<tr><td>ID perangkat &amp; token notifikasi</td><td>Mengamankan akun ke perangkat Anda dan mengirim notifikasi</td><td>Ya, selama akun aktif</td></tr>
+<tr><td>Isi pesan chat</td><td>Diteruskan ke penerima, termasuk lewat notifikasi</td><td>Tidak. Hanya diteruskan, lalu disimpan di HP pengirim dan penerima</td></tr>
+<tr><td>Foto, video, pesan suara, dokumen</td><td>Dikirim ke penerima</td><td>Ya, <b>terenkripsi</b> di HP sebelum diunggah, terhapus otomatis setelah 30 hari</td></tr>
+<tr><td>Cadangan chat</td><td>Memulihkan akun saat ganti HP</td><td>Ya, <b>terenkripsi</b> dengan kunci dari kode pemulihan Anda, sampai akun dihapus</td></tr>
+<tr><td>Lokasi</td><td>Hanya saat Anda memilih kirim lokasi atau lokasi langsung</td><td>Lokasi langsung: posisi terakhir selama sesi, dihapus paling lambat 2 jam setelah selesai</td></tr>
+<tr><td>Foto profil &amp; foto grup</td><td>Ditampilkan ke kontak / anggota grup</td><td>Foto profil: tidak (dikirim langsung ke kontak). Foto grup: ya, selama grup ada</td></tr>
+<tr><td>Daftar anggota grup</td><td>Mengirim pesan grup ke semua anggota</td><td>Ya, sampai grup kosong atau 90 hari tanpa pesan</td></tr>
+<tr><td>Daftar blokir &amp; laporan</td><td>Menghentikan pesan dari orang yang Anda blokir; meninjau penyalahgunaan</td><td>Ya. Laporan memuat hingga 5 pesan terakhir dari pihak yang dilaporkan</td></tr>
+<tr><td>Alamat link di chat</td><td>Membuat pratinjau link (judul &amp; gambar)</td><td>Hanya disimpan sementara di cache (1 hari)</td></tr>
+</tbody></table></div>
+<p>P2P Call <b>tidak</b> membaca kontak HP, SMS, riwayat panggilan telepon, atau galeri Anda. Foto dan file hanya diambil saat Anda memilihnya sendiri.</p>
+
+<h2>2. Telepon, video call, dan LIVE</h2>
+<p>Panggilan 1:1 dan grup kecil tersambung langsung antar perangkat (peer-to-peer). Bila jaringan tidak mengizinkan, panggilan diteruskan lewat server relay Cloudflare (TURN) dalam keadaan terenkripsi, sehingga relay tidak dapat melihat atau mendengar isinya. Panggilan grup lebih dari 4 orang diteruskan lewat server media Cloudflare. Panggilan dan siaran LIVE tidak direkam dan tidak disimpan.</p>
+
+<h2>3. Pihak ketiga yang membantu kami</h2>
+<ul>
+<li><b>Cloudflare</b>: server aplikasi, penyimpanan media dan cadangan terenkripsi, relay dan server media panggilan.</li>
+<li><b>Google Firebase Cloud Messaging</b>: mengirim notifikasi pesan dan panggilan. Isi notifikasi melewati layanan ini.</li>
+<li><b>Google Maps</b>: menampilkan peta saat Anda membuka pesan lokasi.</li>
+<li><b>OpenStreetMap</b>: link lokasi yang dikirim.</li>
+</ul>
+<p>Layanan ini hanya memproses data untuk menjalankan aplikasi. Kami tidak membagikan data Anda untuk iklan atau tujuan lain.</p>
+
+<h2>4. Keamanan</h2>
+<ul>
+<li>Semua koneksi memakai enkripsi (HTTPS/WSS; panggilan memakai DTLS-SRTP).</li>
+<li>Akun terikat ke perangkat Anda dengan kunci rahasia perangkat; perangkat lain tidak dapat memakai kode Anda.</li>
+<li>Media dan cadangan dienkripsi di HP sebelum dikirim ke server.</li>
+<li>Pesan chat belum terenkripsi ujung-ke-ujung. Jangan kirim kata sandi atau data sangat rahasia lewat chat.</li>
+</ul>
+
+<h2>5. Menghapus data dan akun</h2>
+<ul>
+<li><b>Hapus akun:</b> di aplikasi buka <b>Profil → Hapus akun</b>. Cadangan, kode pemulihan, keanggotaan grup, token notifikasi, data perangkat, dan daftar blokir langsung dihapus dari server. Media titipan yang terenkripsi terhapus otomatis dalam 30 hari. Panduan lengkap: <a href="hapus-akun.html">Hapus akun P2P Call</a>.</li>
+<li><b>Keluar:</b> menghapus semua data dari perangkat itu saja. Akun dan cadangan tetap ada dan bisa dipulihkan dengan kode pemulihan.</li>
+<li>Pesan yang sudah terkirim tetap tersimpan di HP penerima, seperti aplikasi chat lainnya.</li>
+</ul>
+
+<h2>6. Anak-anak</h2>
+<p>P2P Call tidak ditujukan untuk anak di bawah 13 tahun, dan kami tidak dengan sengaja mengumpulkan data anak.</p>
+
+<h2>7. Perubahan kebijakan</h2>
+<p>Bila kebijakan ini berubah, tanggal di atas akan diperbarui. Perubahan penting akan diumumkan di aplikasi.</p>
+
+<h2>8. Kontak</h2>
+<p>Pertanyaan atau permintaan terkait privasi: <b>zonegoh@gmail.com</b></p>
+
+<hr>
+<h2 id="english">English summary</h2>
+<p>P2P Call is a chat, voice and video calling app. No phone number, email or password is required. Chat history is stored on your device. There are no ads, analytics or tracking, and we never sell data.</p>
+<ul>
+<li><b>Stored on our servers while your account exists:</b> display name, random account code, device ID and notification token, group membership and group photo, block list, encrypted chat backup (encrypted with a key derived from your recovery code).</li>
+<li><b>Passed through, not stored:</b> chat message text, which is relayed by our server and by Google Firebase Cloud Messaging for notifications. Messages are <b>not end-to-end encrypted</b>.</li>
+<li><b>Stored temporarily:</b> photos, videos, voice messages and documents, encrypted on the device before upload and deleted automatically after 30 days; live location (last position) until at most 2 hours after the session ends; link previews cached for 1 day.</li>
+<li><b>Calls</b> are peer-to-peer when possible, otherwise relayed by Cloudflare (TURN, encrypted) or, for group calls over 4 people, by Cloudflare's media server. Calls are never recorded.</li>
+<li><b>Reports:</b> when you report a user or group, up to 5 of their latest messages are sent to us for review.</li>
+<li><b>Processors:</b> Cloudflare (servers, storage, call relay), Google Firebase Cloud Messaging (notifications), Google Maps (map display).</li>
+<li><b>Deletion:</b> Profile → Delete account removes your account data from our servers immediately; encrypted media expires within 30 days. See <a href="hapus-akun.html#english">how to delete your account</a>.</li>
+<li><b>Contact:</b> zonegoh@gmail.com</li>
+</ul>
+<footer>© 2026 P2P Call · <a href="./">Beranda</a> · <a href="hapus-akun.html">Hapus akun</a></footer>
+</div>
+</body>
+</html>
